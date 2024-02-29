@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <title>Data Generater</title>
+    <style></style>
+  </head>
+  <body>
+    <div class="conatiner">
+      <div class="generate-btn">
+        <button id="btn">Generate Data</button>
+      </div>
+    </div>
+    <script>
+      document.querySelector("#btn").addEventListener("click", async () => {
+        let a = await fetch("/generate");
+        let r = await a.json();
+        console.log(r);
+      });
+    </script>
+  </body>
+</html>

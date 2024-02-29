@@ -1,0 +1,29 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.conatiner {
+  background: #beadcf;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.generate-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+button {
+  background-color: black;
+  color: aliceblue;
+  height: 6vh;
+  width: 10vw;
+  padding: 10px;
+}
+button:hover {
+  cursor: pointer;
+}

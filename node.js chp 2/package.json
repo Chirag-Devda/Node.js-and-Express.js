@@ -1,0 +1,14 @@
+{
+  "name": "node.js-chp-2",
+  "version": "1.0.0",
+  "description": "Files and fs ",
+  "main": "main.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node mainpromise.js",
+    "dev": "nodemon mainpromise.js"
+  },
+  "author": "",
+  "license": "ISC"
+}

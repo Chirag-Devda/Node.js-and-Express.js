@@ -1,0 +1,32 @@
+npm init   
+<--- (The npm init command in the JSON language creates a package.json file for your project’s frontend. A package.json file is a file that contains information about the project’s packages and dependencies. It also contains metadata for the project such as version number, author, and description. )
+
+npm init -y 
+<---(The npm init -y command is a shortcut for creating a package.json file for your Node.js project. It skips the interactive questionnaire that npm init normally asks, and fills the file with sensible default values based on the current project folder123. The -y flag stands for “yes”, meaning that you agree to use the defaults without any modification3.)
+
+npm install 
+<---(This command installs a package, and any packages that it depends on project)
+
+package-lock.json 
+<---(A package-lock.json file is a file that records the exact versions of the packages and their dependencies that you have installed in your project. It helps to ensure that you and other developers working on the same project get the same versions of the packages, even if the packages have released new versions12. It also helps to optimize the installation process by allowing npm to skip repeated metadata resolutions for previously-installed packages1.)
+
+npm install --global nodemon  
+<---( I can explain thatnpm install --global nodemon is a command that installs nodemon, a tool that helps develop Node.js based applications by automatically restarting the node application when file changes in the directory are detected1. The --global flag means that nodemon will be installed globally to your system path, so you can use it directly from the command line
+)
+
+IF nodemon is disabled steps to solve 
+Step-1 >-- 
+Changes in package.json
+"scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node main.js", -- write file name in which start nodemon
+    "dev": "nodemon main.js" -- write file name in which start nodemon
+},
+Step-2 >-- 
+Write command in node in which directory run nodemon
+Command --  npm run dev  
+
+Express js 
+Step-1 >-- npm init or npm init -y <-to make the project node.js and install package->
+Step-2 >-- npm run dev <-- to restart server with nodemon -->
+Step-3 >-- npm i express or npm i express@4 <-- install express in terminal and specific package -->
