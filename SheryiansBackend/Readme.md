@@ -7,7 +7,7 @@
 <li>Dynamic route</li>
 </ul>
 
-1. **part_7**
+2. **part_7**
 <ul>
 <li>fs module</li>
 <li>maded frontend with ejs</li>
