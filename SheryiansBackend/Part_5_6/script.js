@@ -12,6 +12,7 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
+// Dynamic route
 app.get("/user/:username", (req, res) => {
   const username = req.params.username;
   res.send(`Chal raha hai bhai ${username}`);
