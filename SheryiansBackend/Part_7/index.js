@@ -28,6 +28,11 @@ app.get("/files/:filename", (req, res) => {
   });
 });
 
+app.get("/edit/:filename", (req, res) => {
+  const fileName = req.params.filename;
+  res.render("edit", { fileName: fileName });
+});
+
 app.post("/create", (req, res) => {
   console.log(req.body);
   fs.writeFile(
@@ -37,6 +42,14 @@ app.post("/create", (req, res) => {
       res.redirect("/");
     }
   );
+});
+
+app.post("/edit", (req, res) => {
+  const newName = req.body.New.split(".")[0];
+
+  fs.rename(`./files/${req.body.previous}`, `./files/${newName}.txt`, (err) => {
+    res.redirect("/");
+  });
 });
 
 app.listen(PORT, () => {
