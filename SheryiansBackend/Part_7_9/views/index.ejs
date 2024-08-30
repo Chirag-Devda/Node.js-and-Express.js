@@ -32,8 +32,8 @@
         <% if (files.length > 0 ) { %> <% files.forEach(val => {%>
         <div class="task min-w-72 px-3 py-2 bg-zinc-800 text-white rounded-md">
           <h1 class="text-2xl"><%= val %></h1>
-          <div>
-            <a class="text-blue-500 inline-block mt-1" href="/files/<%= val %>"
+          <div class="flex w-full justify-between item-center mt-2">
+            <a class="text-blue-500 inline-block" href="/files/<%= val %>"
               >Read more.</a
             >
             <a href="/edit/<%= val %>">Edit</a>
