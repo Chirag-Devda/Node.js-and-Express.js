@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title></title>
+    <link rel="stylesheet" href="/css/style.css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+  </head>
+  <body>
+    <nav class="w-full py-5 px-5 bg-white">
+      <a
+        class="bg-zinc-700 px-5 py-1 rounded-lg text-white cursor-pointer"
+        href="/read"
+        >All Users</a
+      >
+    </nav>
+    <div class="bg-zinc-900 h-full w-full p-10">
+      <h1 class="text-3xl tracking-tighter mb-5 text-white">Update User</h1>
+      <form action="/update/<%= user._id  %>" method="post">
+        <input
+          class="bg-zinc-900 text-white shadow-md px-5 py-3 border-[0.2px] border-zinc-400 rounded-md block mb-5"
+          name="imageurl"
+          type="text"
+          placeholder="Paste image Url"
+          value="<%= user.image  %>"
+        />
+        <input
+          class="bg-zinc-900 text-white shadow-md px-5 py-3 border-[0.2px] border-zinc-400 rounded-md block mb-5"
+          name="name"
+          type="text"
+          placeholder="Enter your Name"
+          value="<%= user.name  %>"
+        />
+        <input
+          class="bg-zinc-900 text-white shadow-md px-5 py-3 border-[0.2px] border-zinc-400 rounded-md block mb-5"
+          type="email"
+          name="email"
+          placeholder="Enter your email"
+          value="<%= user.email  %>"
+        />
+        <input
+          class="px-10 py-3 bg-blue-400 rounded-md"
+          type="submit"
+          value="Update"
+        />
+      </form>
+    </div>
+  </body>
+</html>
