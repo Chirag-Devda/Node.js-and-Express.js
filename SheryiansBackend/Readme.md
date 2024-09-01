@@ -28,3 +28,28 @@
 <li>Mongoose Model and Schema</li>
 <li>MongoDB CRUD Operation</li>
 </ul>
+
+4. **part_12_13**
+<ul>
+<li>Create DB and Collection in Model</li>
+<li>Create Models using Mogoose</li>
+<li>Create UserSchema in Models</li>
+<li>CRUD Operations</li>
+</ul>
+
+5. **part_14**
+<ul>
+<li>Authentication and Authorization</li>
+<li>Cookies</li>
+<li>Jwt Token</li>
+<li>bcrypt (Password Encryption and Decryption)</li>
+<li>Basics of Authantication</li>
+</ul>
+
+6. **part_15**
+<ul>
+<li>Create App for Practice Authentication and Authorization</li>
+<li>Create User / Login / Logout</li>
+<li>Cookie / Bcrypt / JWT</li>
+<li> Server Side with Ejs </li>
+</ul>
