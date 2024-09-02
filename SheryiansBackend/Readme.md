@@ -53,3 +53,21 @@
 <li>Cookie / Bcrypt / JWT</li>
 <li> Server Side with Ejs </li>
 </ul>
+
+7. **part_15**
+
+- ### New and important Concept
+
+- **Implemented Data Association in MongoDB**:
+
+  - Established relationships between collections using MongoDB's referencing technique.
+
+- **Created Post Model with User ID Reference**:
+
+  - Designed a Post schema that includes a `userId` field, linking each post to the User model via `ObjectId`.
+
+- **Created User Model with Posts Array Reference**:
+
+  - Defined a User schema that contains a `posts` array, storing references to the IDs of the posts created by the user.
+  ``
+  </ul>
