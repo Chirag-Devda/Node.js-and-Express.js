@@ -33,10 +33,11 @@ app.get("/", (req, res) => {
   res.render("index");
 });
 
-app.get("/profile", isLoggedIn, (req, res) => {
-  console.log(req.user);
-
-  res.send("l");
+app.get("/profile", isLoggedIn, async (req, res) => {
+  let user = await userModel
+    .findOne({ email: req.user.email })
+    .populate("posts");
+  res.render("profile", { user });
 });
 
 app.get("/login", (req, res) => {
@@ -82,11 +83,25 @@ app.post("/login", async (req, res) => {
       let token = jwt.sign({ email: email, userid: user._id }, "shhhh");
       res.cookie("token", token);
 
-      res.send("Login successfull");
+      res.redirect("/profile");
     } else {
       res.redirect("/login");
     }
   });
+});
+
+app.post("/post", isLoggedIn, async (req, res) => {
+  let user = await userModel.findOne({ email: req.user.email });
+  let { content } = req.body;
+
+  let post = await postModel.create({
+    user: user._id,
+    content,
+  });
+
+  user.posts.push(post._id);
+  await user.save();
+  res.redirect("/profile");
 });
 
 app.listen(PORT, () => {
