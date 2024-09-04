@@ -6,6 +6,8 @@ const path = require("path");
 const cookieParser = require("cookie-parser");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const crypto = require("crypto"); // node js default package
+const multer = require("multer");
 
 const userModel = require("./models/user.js");
 const postModel = require("./models/post.js");
@@ -18,6 +20,20 @@ app.use(cookieParser());
 
 // Middleware
 // Protection function for routes
+
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    cb(null, "./public/images/uploads");
+  },
+  filename: function (req, file, cb) {
+    crypto.randomBytes(12, function (err, bytes) {
+      const fn = bytes.toString("hex") + path.extname(file.originalname);
+      cb(null, fn);
+    });
+  },
+});
+
+const upload = multer({ storage: storage });
 
 const isLoggedIn = (req, res, next) => {
   if (req.cookies.token == "") {
@@ -131,6 +147,14 @@ app.post("/update/:id", isLoggedIn, async (req, res) => {
   );
 
   res.redirect("/profile");
+});
+
+app.get("/uplodeprofile", (req, res) => {
+  res.render("uploadfile");
+});
+
+app.post("/uploaded", upload.single("image"), (req, res) => {
+  console.log(req.file);
 });
 
 app.listen(PORT, () => {
