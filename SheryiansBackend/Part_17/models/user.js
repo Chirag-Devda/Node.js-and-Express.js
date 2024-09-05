@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-mongoose.connect("mongodb://127.0.0.1:27017/miniProjetc1");
+mongoose.connect("mongodb://127.0.0.1:27017/miniProject1");
 
 const userSchema = mongoose.Schema({
   username: String,
@@ -8,6 +8,10 @@ const userSchema = mongoose.Schema({
   age: Number,
   email: String,
   password: String,
+  profilepic: {
+    type: String,
+    default: "default.jpg",
+  },
   posts: [
     {
       type: mongoose.Schema.Types.ObjectId,

@@ -14,7 +14,18 @@
           >Logout</a
         >
       </div>
-      <h1 class="text-3xl">Hello, <%= user.name %> 👋</h1>
+      <div class="flex item-start gap-4 mb-2">
+        <div class="w-10 h-10 overflow-hidden rounded-full">
+          <a href="/upload/profile">
+            <img
+              class="w-full"
+              src="/images/uploads/<%= user.profilepic  %>"
+              alt=""
+            />
+          </a>
+        </div>
+        <h1 class="text-3xl">Hello, <%= user.name %> 👋</h1>
+      </div>
       <h5 class="mb-5">You can create new post.</h5>
       <form action="/post" method="post">
         <textarea
