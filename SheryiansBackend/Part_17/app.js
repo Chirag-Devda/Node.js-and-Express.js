@@ -20,12 +20,20 @@ app.use(cookieParser());
 // Middleware
 // Protection function for routes
 const isLoggedIn = (req, res, next) => {
-  if (req.cookies.token == "") {
-    res.redirect("/login");
-  } else {
-    let data = jwt.verify(req.cookies.token, "shhhh");
+  const token = req.cookies.token;
+
+  // Check if the token exists
+  if (!token) {
+    return res.redirect("/login");
+  }
+
+  try {
+    const data = jwt.verify(token, "shhhh");
     req.user = data;
-    next();
+    next(); // Token is valid, proceed to the next middleware or route
+  } catch (err) {
+    console.error(err); // Log error for debugging
+    return res.redirect("/login");
   }
 };
 
