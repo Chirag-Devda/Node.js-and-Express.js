@@ -54,9 +54,7 @@
 <li> Server Side with Ejs </li>
 </ul>
 
-7. **part_16**
-
-- ### New and important Concept
+## 7. **part_16** - New and important Concept
 
 - **Implemented Data Association in MongoDB**:
 
@@ -69,5 +67,28 @@
 - **Created User Model with Posts Array Reference**:
 
   - Defined a User schema that contains a `posts` array, storing references to the IDs of the posts created by the user.
-  ``
-  </ul>
+
+## 8. **part_17** - Mini Project: Backend Server with MongoDB, JWT Authentication, and Post Creation
+
+## Project Overview
+
+This backend mini project demonstrates user authentication and post creation using MongoDB as the database. The server handles login and logout with JWT tokens stored in cookies. Users can create posts, and relationships between users and posts are maintained through ObjectID references.
+
+## Features
+
+- **User Authentication**:
+  - Login and logout functionality using JWT and cookies for secure authentication.
+- **User Model**:
+
+  - Stores user information along with an array of posts references (`ObjectID`).
+
+- **Post Model**:
+
+  - Stores posts created by users, referencing the respective user via `ObjectID`.
+
+- **Profile Picture Upload**
+
+  - Implemented profile picture upload using the `multer` package.
+  - Uploaded images are stored in `./public/images/uploads`.
+
+  - The image filename is saved in the `profilepic` field of the User model in the MongoDB database.
