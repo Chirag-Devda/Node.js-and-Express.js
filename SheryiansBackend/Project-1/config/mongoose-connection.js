@@ -7,4 +7,4 @@ mongoose
   .then(() => console.log("Connected to database"))
   .catch((err) => console.error("Database connection error:", err));
 
-module.exports = mongoose;
+module.exports = mongoose.connection; // gives whole control to database Backend-Project-1-ecommerce
