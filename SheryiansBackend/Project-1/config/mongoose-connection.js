@@ -1,10 +1,13 @@
 const mongoose = require("mongoose");
+const config = require("config");
 
-const dbURI = "mongodb://localhost:27017/Backend-Project-1-ecommerce";
+const dbgr = require("debug")("development:mongoose");
+
+const dbURI = `${config.get("MONGODB_URI")}/Backend-Project-1-ecommerce`;
 
 mongoose
   .connect(dbURI)
-  .then(() => console.log("Connected to database"))
-  .catch((err) => console.error("Database connection error:", err));
+  .then(() => dbgr("Connected to database"))
+  .catch((err) => dbgr("Database connection error:", err));
 
-module.exports = mongoose.connection; // gives whole control to database Backend-Project-1-ecommerce
+module.exports = mongoose.connection;
