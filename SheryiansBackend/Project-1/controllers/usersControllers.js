@@ -57,7 +57,7 @@ module.exports.loginUser = async function (req, res) {
     // Compare password and handle the result explicitly
     const isMatch = await bcrypt.compare(password, user.password);
 
-    if (isMatch === true) {
+    if (isMatch) {
       const token = generateToken(user);
       res.cookie("token", token, { httpOnly: true });
 
@@ -69,4 +69,9 @@ module.exports.loginUser = async function (req, res) {
     console.log(error.message);
     return res.status(500).json({ message: "Server Error" });
   }
+};
+
+module.exports.logoutUser = async function (req, res) {
+  res.cookie("token", "");
+  res.redirect("/");
 };

@@ -24,8 +24,8 @@ if (process.env.NODE_ENV === "development") {
   });
 }
 
-router.get("/", function (req, res) {
-  res.send("hey this is owners route");
+router.get("/addProduct", function (req, res) {
+  res.render("addProduct"); // render create product form page
 });
 
 module.exports = router;
