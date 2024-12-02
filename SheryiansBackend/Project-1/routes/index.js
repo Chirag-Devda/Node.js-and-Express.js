@@ -1,10 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const isLoggedin = require("../middlewares/isLoggedin");
 
 router.get("/", (req, res) => {
-  const error = req.flash("error");
-  res.render("index", { error });
+  if (!req.cookies.token) {
+    return res.render("index", { messages: req.flash() });
+  }
+
+  return res.redirect("/shop");
 });
 
 module.exports = router;

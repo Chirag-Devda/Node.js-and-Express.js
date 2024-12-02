@@ -8,9 +8,11 @@ const flash = require("connect-flash");
 require("dotenv").config();
 
 const indexRouter = require("./routes/index");
-const ownersRouter = require("./routes/ownersRouter");
-const usersRouter = require("./routes/usersRouter");
-const productsRouter = require("./routes/productsRouter");
+const ownersRouter = require("./routes/ownerRouter");
+const usersRouter = require("./routes/userRouter");
+const productsRouter = require("./routes/productRouter");
+const shopsRouter = require("./routes/shopRouter");
+const cartRouter = require("./routes/cartRouter");
 
 const db = require("./config/mongoose-connection");
 
@@ -29,9 +31,11 @@ app.use(express.static(path.join(__dirname, "public")));
 app.set("view engine", "ejs");
 
 app.use("/", indexRouter);
-app.use("/owners", ownersRouter);
-app.use("/users", usersRouter);
-app.use("/products", productsRouter);
+app.use("/owner", ownersRouter);
+app.use("/user", usersRouter);
+app.use("/product", productsRouter);
+app.use("/shop", shopsRouter);
+app.use("/cart", cartRouter);
 
 app.listen(PORT, (req, res) => {
   console.log(`Server is running on Port http://localhost:${PORT}/`);

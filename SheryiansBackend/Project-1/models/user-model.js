@@ -6,10 +6,16 @@ const userSchema = mongoose.Schema({
   password: String,
   contact: Number,
   picture: String,
-  cart: {
-    type: Array,
-    default: [],
-  },
+  cart: [
+    {
+      product: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: "product",
+        required: true,
+      }, // Reference to the Product model
+      quantity: { type: Number, default: 1 }, // Quantity of the product in the cart
+    },
+  ],
   orders: {
     type: Array,
     default: [],

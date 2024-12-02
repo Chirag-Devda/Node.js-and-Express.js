@@ -5,11 +5,7 @@ const {
   createUser,
   loginUser,
   logoutUser,
-} = require("../controllers/usersControllers");
-
-router.get("/", function (req, res) {
-  res.send("hey this is users route");
-});
+} = require("../controllers/userControllers");
 
 router.post("/register", createUser);
 
