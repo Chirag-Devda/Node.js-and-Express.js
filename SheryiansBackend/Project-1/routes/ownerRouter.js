@@ -5,6 +5,7 @@ const {
   createOwner,
   showLoginForm,
   loginOwner,
+  ownerDashboard,
 } = require("../controllers/ownerControllers");
 
 if (process.env.NODE_ENV === "development") {
@@ -15,6 +16,7 @@ router.get("/login", showLoginForm);
 
 router.post("/login", loginOwner);
 
-router.get("/dashboard", isOwner);
+router.get("/dashboard", isOwner, ownerDashboard);
+
 
 module.exports = router;
